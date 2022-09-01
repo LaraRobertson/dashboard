@@ -35,3 +35,5 @@ export AUTH0_REDIRECT_URI="http://localhost:3000/login"
 ## TODO:
 - add example of getting user details
 - add example of authorizing api requests
+
+###/* to deploy to github pages:     "homepage": "https://lararobertson.github.io/dashboard/", */

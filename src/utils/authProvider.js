@@ -38,6 +38,7 @@ export default {
     },
     // called when the user navigates to a new location, to check for authentication
     checkAuth: () => {
+        console.log("checkAuth");
         return auth0.isAuthenticated().then(function (isAuthenticated) {
             if (isAuthenticated) {
                 return Promise.resolve();
