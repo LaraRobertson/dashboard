@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "https://lararobertson.github.io/dashboard/static/css/main.549d4f47.css",
-    "main.js": "https://lararobertson.github.io/dashboard/static/js/main.ca565e14.js",
-    "index.html": "https://lararobertson.github.io/dashboard/index.html",
-    "main.549d4f47.css.map": "https://lararobertson.github.io/dashboard/static/css/main.549d4f47.css.map",
-    "main.ca565e14.js.map": "https://lararobertson.github.io/dashboard/static/js/main.ca565e14.js.map"
+    "main.css": "https://lararobertson.github.io/static/css/main.720b4afd.css",
+    "main.js": "https://lararobertson.github.io/static/js/main.72a178bd.js",
+    "index.html": "https://lararobertson.github.io/index.html",
+    "main.720b4afd.css.map": "https://lararobertson.github.io/static/css/main.720b4afd.css.map",
+    "main.72a178bd.js.map": "https://lararobertson.github.io/static/js/main.72a178bd.js.map"
   },
   "entrypoints": [
-    "static/css/main.549d4f47.css",
-    "static/js/main.ca565e14.js"
+    "static/css/main.720b4afd.css",
+    "static/js/main.72a178bd.js"
   ]
 }
