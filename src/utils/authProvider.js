@@ -9,18 +9,24 @@ const auth0 = new Auth0Client({
     useRefreshTokens: true
 });
 
+
 export default {
+
     // called when the user attempts to log in
     login: (url) => {
         if (typeof url === 'undefined') {
             return auth0.loginWithRedirect()
         }
+
+        /* .then from https://auth0.com/docs/libraries/auth0-single-page-app-sdk#get-user */
+
         return auth0.handleRedirectCallback(url.location);
     },
     // called when the user clicks on the logout button
     logout: () => {
         return auth0.isAuthenticated().then(function (isAuthenticated) {
             if (isAuthenticated) { // need to check for this as react-admin calls logout in case checkAuth failed
+                localStorage.removeItem("userID");
                 return auth0.logout({
                     redirect_uri: window.location.origin,
                     federated: true // have to be enabled to invalidate refresh token

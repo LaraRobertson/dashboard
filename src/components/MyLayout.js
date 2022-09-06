@@ -1,12 +1,10 @@
 import React from "react";
 import { Layout } from "react-admin";
 import MyAppBar from "./MyAppBar";
-import { ProfileProvider } from "./profile";
+import MySidebar from "./MySidebar";
 
 const MyLayout = (props) => (
-    <ProfileProvider>
-        <Layout {...props} appBar={MyAppBar} />
-    </ProfileProvider>
+        <Layout {...props} appBar={MyAppBar} menu={MySidebar}/>
 );
 
 export default MyLayout;

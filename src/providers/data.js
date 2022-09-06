@@ -18,9 +18,50 @@ const data = {
             "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
         },
     ],
+    events: [
+        {
+            "orgId": 1,
+            "id": 1,
+            "title": "Event 1",
+            "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+        },
+        {
+            "orgId": 1,
+            "id": 2,
+            "title": "Event 2",
+            "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+        },
+    ],
     users: [
         {
             "id": 1,
+            "user_id": "xx",
+            "organizations": {"1": "admin", "2":"user"},
+            "name": "Lara Robertson",
+            "username": "Lara",
+            "email": "lara@email.com",
+            "address": {
+                "street": "Kulas Light",
+                "suite": "Apt. 556",
+                "city": "Gwenborough",
+                "zipcode": "92998-3874",
+                "geo": {
+                    "lat": "-37.3159",
+                    "lng": "81.1496"
+                }
+            },
+            "phone": "1-770-736-8031 x56442",
+            "avatar": "",
+            "website": "hildegard.org",
+            "company": {
+                "name": "Romaguera-Crona",
+                "catchPhrase": "Multi-layered client-server neural-net",
+                "bs": "harness real-time e-markets"
+            }
+        },
+        {
+            "id": 2,
+            "user_id": "xx",
             "name": "Leanne Grahamey",
             "username": "Bret",
             "email": "Sincere@april.biz",
@@ -35,6 +76,7 @@ const data = {
                 }
             },
             "phone": "1-770-736-8031 x56442",
+            "avatar": "",
             "website": "hildegard.org",
             "company": {
                 "name": "Romaguera-Crona",
@@ -43,7 +85,8 @@ const data = {
             }
         },
         {
-            "id": 2,
+            "id": 3,
+            "user_id": "xx",
             "name": "Ervin Howell",
             "username": "Antonette",
             "email": "Shanna@melissa.tv",
@@ -58,6 +101,7 @@ const data = {
                 }
             },
             "phone": "010-692-6593 x09125",
+            "avatar": "",
             "website": "anastasia.net",
             "company": {
                 "name": "Deckow-Crist",
@@ -66,20 +110,38 @@ const data = {
             }
         }
     ],
-    comments: [
+    organizations: [
         {
-            "postId": 1,
             "id": 1,
-            "name": "id labore ex et quam laborum",
-            "email": "Eliseo@gardner.biz",
-            "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+            "organization_id": 1,
+            "user_id": "6312502d290855877226e536",
+            "name": "Org 1",
+            "location": "atlanta",
+            "detail": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
         },
         {
-            "postId": 1,
             "id": 2,
-            "name": "quo vero reiciendis velit similique earum",
-            "email": "Jayne_Kuhic@sydney.com",
-            "body": "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
+            "organization_id": 2,
+            "user_id": "6312502d290855877226e536",
+            "name": "Org 2",
+            "location": "marietta",
+            "detail": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+        },
+        {
+            "id": 3,
+            "organization_id": 2,
+            "user_id": "63125098f5828f6f95466962",
+            "name": "Org 2",
+            "location": "marietta",
+            "detail": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+        },
+        {
+            "id": 4,
+            "organization_id": 3,
+            "user_id": "63125098f5828f6f95466962",
+            "name": "Org 3",
+            "location": "decatur",
+            "detail": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
         },
     ]};
 

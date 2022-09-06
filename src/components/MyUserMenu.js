@@ -1,24 +1,49 @@
 import React from "react";
-import { UserMenu, MenuItemLink } from "react-admin";
-import SettingsIcon from "@material-ui/icons/Settings";
-import HomeIcon from "@material-ui/icons/Home";
-import { useProfile } from "./profile";
+import { forwardRef } from 'react';
+import { UserMenu, MenuItemLink, useLogout } from "react-admin";
+import {Link, MenuItem, Box} from '@mui/material';
+import SettingsIcon from "@mui/icons-material/Settings";
+import ExitIcon from '@mui/icons-material/PowerSettingsNew';
+import authConfig from "../utils/authConfig";
+import {Auth0Client} from '@auth0/auth0-spa-js';
+
+const auth0 = new Auth0Client({
+    domain: authConfig.domain,
+    client_id: authConfig.clientID,
+    redirect_uri: authConfig.redirectURI,
+    cacheLocation: 'localstorage',
+    useRefreshTokens: true
+});
+/* get links */
+const organization = "org 1";
+const userID = "1";
+const profileLink = "/users/" + userID;
+/* end get links */
+
+const MyLogoutButton = forwardRef((props, ref) => {
+    //const logout = useLogout();
+    const handleClick = () => {
+        auth0.logout({
+            returnTo: 'http://localhost:3000/'
+        });
+    };
+    return (
+        <Box>
+            <MenuItem
+            sx={{ color:"darkgray"}}
+            onClick={handleClick}
+            ref={ref}
+        >
+            <ExitIcon sx={{ paddingRight:"5px"}}/> Logout
+        </MenuItem>
+        </Box>
+    );
+});
 
 const MyUserMenu = (props) => {
-    const { profileVersion } = useProfile();
-    console.log("profile version: " + profileVersion);
     return (
-        <UserMenu key={profileVersion} {...props}>
-            <MenuItemLink
-                to="/my-profile"
-                primaryText="My Profile"
-                leftIcon={<SettingsIcon />}
-            />
-            <MenuItemLink
-                to="/home"
-                primaryText="Home"
-                leftIcon={<HomeIcon />}
-            />
+        <UserMenu {...props}>
+            <MyLogoutButton />
         </UserMenu>
     );
 };
