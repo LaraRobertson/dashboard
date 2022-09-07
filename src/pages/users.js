@@ -17,12 +17,13 @@ import {
     SelectInput,
     SimpleForm,
     TextInput,
-    Filter, ImageInput, required, ImageField,
+    Filter, ImageInput, required, ImageField, useStore, useGetList, Loading, Error
 } from 'react-admin';
 
 import {theme} from "../components/theme";
 import {useMediaQuery} from "@mui/material";
 import getUser from "../utils/getUser";
+import authConfig from "../utils/authConfig";
 
 const useStyles = makeStyles({
     button: {
@@ -57,12 +58,40 @@ const UserFilter = props => (
 export const UserList = props => {
     const isSmall = useMediaQuery(theme => theme.breakpoints.down('sm'));
     const classes = useStyles();
-    const userID = getUser();
-    const profileLink = "/users/" + userID["user_sysid"];
+    /* get user from auth0 */
+    const key = "@@auth0spajs@@::" + authConfig.clientID + "::default::openid profile email offline_access";
+    console.log("mykey: "+ key);
+    const token = JSON.parse(localStorage.getItem(key));
+    console.log("token: " + token);
+    let user_id = "";
+    if (token !== null) {
+        console.log("mytoken[body][client_id]: " + token["body"]["decodedToken"]["user"]["sub"]);
+        user_id = token["body"]["decodedToken"]["user"]["sub"].replace("auth0|", '');
+        console.log("user_id: " + user_id);
+    }
+    /* end get user from auth0 */
+    /* get user info */
+    console.log("get user info");
+    let payload = {
+        filter: {user_id: user_id}
+    };
+    const {data: users, isLoading, error} = useGetList('users', payload);
+    if (isLoading) return <Loading/>;
+    if (error) return <Error/>;
+    if (!users) return null;
+    let userID = "";
+    for (const key in users) {
+        console.log(`${key}: ${users[key]}`);
+        for(const key2 in users[key]) {
+            if (key2 === "id") userID = users[key][key2];
+            console.log(`${key2}: ${users[key][key2]}`);
+        }
+    }
+    const profileLink = "#/users/" + userID;
     return (
         <ThemeProvider theme={theme}>
             <h1>Settings</h1>
-            <div><span className={classes.button}><a href={profileLink}>Users</a> | My Profile</span></div>
+            <div><span className={classes.button}>Users | <a href={profileLink}>My Profile</a></span></div>
             <List {...props} filters={<UserFilter/>}>
                 <Datagrid rowClick="edit">
                     <TextField source="name"/>
@@ -82,8 +111,7 @@ const UserTitle = ({ record }) => {
 export const UserEdit = props => {
     const isSmall = useMediaQuery(theme => theme.breakpoints.down('sm'));
     const classes = useStyles();
-    const userID = 1;
-    const hrefConfig = "/users";
+    const hrefConfig = "#/users";
 
     return (
         <ThemeProvider theme={theme}>

@@ -71,6 +71,7 @@ const theme = {
 const App = () => (
     <HashRouter basename={process.env.PUBLIC_URL}>
     <Admin
+        dashboard={Dashboard}
         layout={MyLayout}
         authProvider={authProvider}
         dataProvider={dataProvider}
@@ -83,7 +84,6 @@ const App = () => (
             />
         ]}
         history={history}
-        dashboard={Dashboard}
         loginPage={loginPage}
         theme={theme}
 

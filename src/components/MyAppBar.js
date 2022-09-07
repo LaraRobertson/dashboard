@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from 'react';
 import { defaultTheme, Layout, AppBar } from 'react-admin';
 import { createTheme, Box, Typography } from '@mui/material';
 import MyUserMenu from "./MyUserMenu";

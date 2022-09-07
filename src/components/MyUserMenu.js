@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from 'react';
 import { forwardRef } from 'react';
 import { UserMenu, MenuItemLink, useLogout } from "react-admin";
 import {Link, MenuItem, Box} from '@mui/material';
@@ -24,7 +24,7 @@ const MyLogoutButton = forwardRef((props, ref) => {
     //const logout = useLogout();
     const handleClick = () => {
         auth0.logout({
-            returnTo: 'https://lararobertson.github.io/dashboard/'
+            returnTo: 'http://localhost:3000/'
         });
     };
     return (

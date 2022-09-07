@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Login } from 'react-admin';
 
 import LoginForm from '../components/LoginForm';

@@ -72,7 +72,6 @@ const data = {
         {
             "id": 1,
             "user_id": "63125098f5828f6f95466962",
-            "organizations": {"1": "admin", "2":"user"},
             "name": "Jane Doe",
             "username": "janedoe",
             "email": "janedoe@mail.com"
@@ -89,7 +88,7 @@ const data = {
         {
             "id": 1,
             "organization_id": 1,
-            "user_id": "6312502d290855877226e536",
+            "user_id": "63125098f5828f6f95466962",
             "name": "Org 1",
             "location": "atlanta",
             "detail": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
@@ -97,7 +96,7 @@ const data = {
         {
             "id": 2,
             "organization_id": 2,
-            "user_id": "6312502d290855877226e536",
+            "user_id": "63125098f5828f6f95466962",
             "name": "Org 2",
             "location": "marietta",
             "detail": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
@@ -105,7 +104,7 @@ const data = {
         {
             "id": 3,
             "organization_id": 2,
-            "user_id": "63125098f5828f6f95466962",
+            "user_id": "6312502d290855877226e536",
             "name": "Org 2",
             "location": "marietta",
             "detail": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
@@ -113,7 +112,7 @@ const data = {
         {
             "id": 4,
             "organization_id": 3,
-            "user_id": "63125098f5828f6f95466962",
+            "user_id": "6312502d290855877226e536",
             "name": "Org 3",
             "location": "decatur",
             "detail": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"

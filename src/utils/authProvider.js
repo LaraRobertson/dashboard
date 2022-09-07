@@ -1,5 +1,6 @@
 import authConfig from "./authConfig";
 import {Auth0Client} from '@auth0/auth0-spa-js';
+import getUser from "./getUser";
 
 const auth0 = new Auth0Client({
     domain: authConfig.domain,
@@ -19,7 +20,6 @@ export default {
         }
 
         /* .then from https://auth0.com/docs/libraries/auth0-single-page-app-sdk#get-user */
-
         return auth0.handleRedirectCallback(url.location);
     },
     // called when the user clicks on the logout button

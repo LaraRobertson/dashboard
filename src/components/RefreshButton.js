@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from 'react';
 import { useRefresh } from 'react-admin';
 import Button from '@mui/material/Button';
 

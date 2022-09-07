@@ -1,7 +1,7 @@
 /**
  * Created by lara on 3/26/2021.
  */
-import React from 'react';
+import * as React from 'react';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({

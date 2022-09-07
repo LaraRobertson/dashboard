@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import * as React from 'react';
 import { ThemeProvider, makeStyles} from "@mui/styles";
 import { useMediaQuery } from '@mui/material';
 import {
@@ -54,7 +54,7 @@ const DeviceList = props => {
     return (
         <ThemeProvider theme={theme}>
             <h1>Settings</h1>
-            <div><span className={classes.button} >My Profile  | <a href={hrefConfig}>Users</a></span></div>
+            <div><span className={classes.button} ><a href={hrefConfig}>My Profile</a>  | Users</span></div>
             <SimpleForm  resource="users" filter={{id: userID}}>
                 <TextInput source="name" validate={required()} />
                 <ImageInput source="avatar" validate={required()}>
