@@ -24,7 +24,7 @@ const MyLogoutButton = forwardRef((props, ref) => {
     //const logout = useLogout();
     const handleClick = () => {
         auth0.logout({
-            returnTo: 'http://localhost:3000/'
+            returnTo: 'https://lararobertson.github.io/dashboard/'
         });
     };
     return (
