@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Route } from "react-router";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter,BrowserRouter } from "react-router-dom";
+
 
 // material
 import Book from '@mui/icons-material/Book';
@@ -15,6 +16,7 @@ import {Admin, Resource, ListGuesser, MenuItemLink} from 'react-admin';
 
 // pages
 import {UserList, UserEdit, UserCreate, UserShow} from './pages/users';
+import {ControllerList, ControllerEdit, ControllerCreate, ControllerShow} from './pages/controllers';
 import loginPage from "./pages/login";
 
 
@@ -27,11 +29,12 @@ import Settings from './components/Settings';
 import MySidebar from './components/MySidebar';
 
 // browser history
-import { createBrowserHistory as createHistory } from 'history';
 import { defaultTheme } from 'react-admin';
-import {Box} from "@mui/material";
-const history = createHistory();
+import { createBrowserHistory } from 'history';
 
+export const history = createBrowserHistory({
+    basename: process.env.PUBLIC_URL
+});
 
 const theme = {
     ...defaultTheme,
@@ -66,11 +69,12 @@ const theme = {
 };
 
 const App = () => (
-    <BrowserRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
     <Admin
         layout={MyLayout}
         authProvider={authProvider}
         dataProvider={dataProvider}
+        dashboard={Dashboard}
         customRoutes={[
             <Route
                 exact
@@ -85,8 +89,6 @@ const App = () => (
 
     >
 
-
-
         <Resource
             name="users"
             icon={Book}
@@ -95,10 +97,18 @@ const App = () => (
             create={UserCreate}
             show={UserShow}
         />
+        <Resource
+            name="controllers"
+            icon={Book}
+            list={ControllerList}
+            edit={ControllerEdit}
+            create={ControllerCreate}
+            show={ControllerShow}
+        />
         <Resource name="organizations" icon={UserIcon} list={ListGuesser}/>
-        <Resource name="users" icon={UserIcon} list={UserList}/>
+        <Resource name="events" icon={UserIcon} list={ListGuesser}/>
 
     </Admin>
-    </BrowserRouter>
+    </HashRouter>
 );
 export default App;

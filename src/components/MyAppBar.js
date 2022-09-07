@@ -9,11 +9,6 @@ const darkTheme = createTheme({
 });
 
 
-/* get links */
-const organization = "org 1";
-const orgID = "1";
-const eventsLink = "/events/" + orgID;
-/* end get links */
 
 const MyAppBar = props => (
     <AppBar {...props} userMenu={<MyUserMenu />}>
@@ -29,7 +24,7 @@ const MyAppBar = props => (
             />
             <Box >
             <MenuItemLink
-                to={eventsLink}
+                to="/events"
                 primaryText="Events"
                 className="topNav"
             />
@@ -57,8 +52,8 @@ const MyAppBar = props => (
             </Box>
             <Box >
                 <MenuItemLink
-                    to="/endpoints"
-                    primaryText="Endpoints"
+                    to="/controllers"
+                    primaryText="Endpoints/Controllers"
                     className="topNav"
                 />
             </Box>

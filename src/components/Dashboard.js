@@ -2,9 +2,9 @@ import * as React from 'react';
 import DashboardOrganizations from "./DashboardOrganizations";
 import getUser from "../utils/getUser";
 
+/*getUser();
 const userID = getUser();
-console.log("userID: " + userID.user_id);
+<DashboardOrganizations userID= {userID} />*/
+const Dashboard = () => <DashboardOrganizations />;
 
-export default () => (
-        <DashboardOrganizations userID= {userID} />
-);
+export default Dashboard;

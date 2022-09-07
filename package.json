@@ -2,7 +2,7 @@
     "name": "tutorial",
     "version": "3.0.0",
     "private": true,
-    "homepage": ".",
+    "homepage": "https://lararobertson.github.io/dashboard/",
     "dependencies": {
         "@auth0/auth0-spa-js": "^1.12.1",
         "@emotion/react": "^11.10.4",

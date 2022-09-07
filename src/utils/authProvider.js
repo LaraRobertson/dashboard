@@ -26,7 +26,6 @@ export default {
     logout: () => {
         return auth0.isAuthenticated().then(function (isAuthenticated) {
             if (isAuthenticated) { // need to check for this as react-admin calls logout in case checkAuth failed
-                localStorage.removeItem("userID");
                 return auth0.logout({
                     redirect_uri: window.location.origin,
                     federated: true // have to be enabled to invalidate refresh token
@@ -43,6 +42,7 @@ export default {
         return Promise.resolve();
     },
     // called when the user navigates to a new location, to check for authentication
+    // was doing this if not authenticated: return auth0.getTokenSilently()
     checkAuth: () => {
         console.log("checkAuth");
         return auth0.isAuthenticated().then(function (isAuthenticated) {

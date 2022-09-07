@@ -44,9 +44,9 @@ const UserFilter = props => (
     <Filter {...props}>
         <TextInput label="Search" source="q" alwaysOn />
         <ReferenceInput
-            label="User"
-            source="userId"
-            reference="users"
+            label="Event"
+            source="event_id"
+            reference="events"
             allowEmpty
         >
             <SelectInput optionText="name" />
@@ -54,24 +54,18 @@ const UserFilter = props => (
     </Filter>
 );
 
-export const UserList = props => {
+export const ControllerList = props => {
+    const organization_id  = localStorage.getItem("organization_id");
     const isSmall = useMediaQuery(theme => theme.breakpoints.down('sm'));
     const classes = useStyles();
-    const userID = getUser();
-    const profileLink = "/users/" + userID["user_sysid"];
     return (
-        <ThemeProvider theme={theme}>
-            <h1>Settings</h1>
-            <div><span className={classes.button}><a href={profileLink}>Users</a> | My Profile</span></div>
-            <List {...props} filters={<UserFilter/>}>
+            <List {...props} filters={<UserFilter/>} filter={{organization_id: organization_id}}>
                 <Datagrid rowClick="edit">
-                    <TextField source="name"/>
-                    <TextField source="email"/>
-                    <TextField source="username"/>
+                    <TextField source="title"/>
+                    <TextField source="body"/>
                     <ShowButton/>
                 </Datagrid>
             </List>
-        </ThemeProvider>
     )
 };
 
@@ -79,46 +73,35 @@ const UserTitle = ({ record }) => {
     return <span>User {record ? `"${record.title}"` : ''}</span>;
 };
 
-export const UserEdit = props => {
+export const ControllerEdit = props => {
     const isSmall = useMediaQuery(theme => theme.breakpoints.down('sm'));
     const classes = useStyles();
-    const userID = 1;
-    const hrefConfig = "/users";
 
     return (
-        <ThemeProvider theme={theme}>
-            <h1>Settings</h1>
-            <div><span className={classes.button}>My Profile  | <a href={hrefConfig}>Users</a></span></div>
+
             <Edit title={<UserTitle/>} {...props}>
                 <SimpleForm>
-                    <TextInput source="name"/>
-                    <TextInput source="email"/>
-                    <ImageInput source="avatar">
-                        <ImageField />
-                    </ImageInput>
+                    <TextInput source="title"/>
+                    <TextInput source="body"/>
                 </SimpleForm>
             </Edit>
-        </ThemeProvider>
     );
 };
 
-export const UserCreate = props => (
+export const ControllerCreate = props => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source="name"/>
-            <TextInput source="email"/>
-            <ImageInput source="avatar">
-                <ImageField />
-            </ImageInput>
+            <TextInput source="title"/>
+            <TextInput source="bodyl"/>
         </SimpleForm>
     </Create>
 );
 
-export const UserShow = props => (
+export const ControllerShow = props => (
     <Show {...props}>
         <SimpleShowLayout>
-            <TextField source="name"/>
-            <TextField source="email"/>
+            <TextField source="title"/>
+            <TextField source="body"/>
         </SimpleShowLayout>
     </Show>
 );

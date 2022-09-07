@@ -36,7 +36,7 @@ const MyLoginPage = ({ theme }) => {
         e.preventDefault();
         // will call authProvider.login({ email, password })
         auth0.loginWithRedirect({
-            redirect_uri: 'http://localhost:3000/'
+            redirect_uri: process.env.REACT_APP_AUTH0_REDIRECT_URI
         });
         //logged in. you can get the user profile like this:
         //doesn't return anything
