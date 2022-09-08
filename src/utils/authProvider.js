@@ -1,6 +1,5 @@
 import authConfig from "./authConfig";
 import {Auth0Client} from '@auth0/auth0-spa-js';
-import getUser from "./getUser";
 
 const auth0 = new Auth0Client({
     domain: authConfig.domain,
@@ -18,7 +17,6 @@ export default {
         if (typeof url === 'undefined') {
             return auth0.loginWithRedirect()
         }
-
         /* .then from https://auth0.com/docs/libraries/auth0-single-page-app-sdk#get-user */
         return auth0.handleRedirectCallback(url.location);
     },
@@ -49,7 +47,9 @@ export default {
             if (isAuthenticated) {
                 return Promise.resolve();
             }
-            return auth0.getTokenSilently()
+            return auth0.getTokenSilently({
+                redirect_uri: process.env.REACT_APP_AUTH0_REDIRECT_URI
+            })
         })
     },
     // called when the user navigates to a new location, to check for permissions / roles

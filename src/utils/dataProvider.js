@@ -1,6 +1,6 @@
-import fakerestDataProvider from 'ra-data-fakerest';
-import data from "../providers/data";
-
+import fakerestDataProvider from './my-ra-data-fakerest';
+import data from "../provider/data";
+import data2 from "../provider/data2";
 
 // A function decorating a dataProvider for handling user profiles
 const addUserProfileOverrides = (dataProvider) => ({
@@ -47,5 +47,5 @@ const convertFileToBase64 = (file) =>
     });
 
 export default addUserProfileOverrides(
-    fakerestDataProvider(data, true)
+    fakerestDataProvider(data, data2, true)
 );

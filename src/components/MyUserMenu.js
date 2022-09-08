@@ -24,9 +24,10 @@ const MyLogoutButton = forwardRef((props, ref) => {
     //const logout = useLogout();
     const handleClick = () => {
         auth0.logout({
-            returnTo: 'https://lararobertson.github.io/dashboard/'
+            returnTo: process.env.REACT_APP_AUTH0_REDIRECT_URI
         });
     };
+
     return (
         <Box>
             <MenuItem
@@ -37,6 +38,7 @@ const MyLogoutButton = forwardRef((props, ref) => {
             <ExitIcon sx={{ paddingRight:"5px"}}/> Logout
         </MenuItem>
         </Box>
+
     );
 });
 

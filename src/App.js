@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Route } from "react-router";
-import { HashRouter,BrowserRouter } from "react-router-dom";
+//import { BrowserRouter } from 'react-router-dom';
+//import { Route } from "react-router";
+//import { HashRouter,BrowserRouter } from "react-router-dom";
 
 
 // material
@@ -17,7 +18,7 @@ import {Admin, Resource, ListGuesser, MenuItemLink} from 'react-admin';
 // pages
 import {UserList, UserEdit, UserCreate, UserShow} from './pages/users';
 import {ControllerList, ControllerEdit, ControllerCreate, ControllerShow} from './pages/controllers';
-import loginPage from "./pages/login";
+import LoginPage from "./pages/login";
 
 
 // components
@@ -30,11 +31,7 @@ import MySidebar from './components/MySidebar';
 
 // browser history
 import { defaultTheme } from 'react-admin';
-import { createBrowserHistory } from 'history';
 
-export const history = createBrowserHistory({
-    basename: process.env.PUBLIC_URL
-});
 
 const theme = {
     ...defaultTheme,
@@ -69,24 +66,14 @@ const theme = {
 };
 
 const App = () => (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+
     <Admin
+        loginPage={LoginPage}
         dashboard={Dashboard}
         layout={MyLayout}
         authProvider={authProvider}
         dataProvider={dataProvider}
-        dashboard={Dashboard}
-        customRoutes={[
-            <Route
-                exact
-                path="/settings"
-                component={(props) => <Settings {...props} />}
-            />
-        ]}
-        history={history}
-        loginPage={loginPage}
         theme={theme}
-
     >
 
         <Resource
@@ -109,6 +96,6 @@ const App = () => (
         <Resource name="events" icon={UserIcon} list={ListGuesser}/>
 
     </Admin>
-    </HashRouter>
+
 );
 export default App;

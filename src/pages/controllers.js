@@ -22,7 +22,6 @@ import {
 
 import {theme} from "../components/theme";
 import {useMediaQuery} from "@mui/material";
-import getUser from "../utils/getUser";
 
 const useStyles = makeStyles({
     button: {
