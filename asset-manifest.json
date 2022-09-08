@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "./static/css/main.720b4afd.css",
-    "main.js": "./static/js/main.d75e8f86.js",
-    "static/js/787.6f0453fb.chunk.js": "./static/js/787.6f0453fb.chunk.js",
-    "service-worker.js": "./service-worker.js",
-    "index.html": "./index.html",
-    "main.720b4afd.css.map": "./static/css/main.720b4afd.css.map",
-    "main.d75e8f86.js.map": "./static/js/main.d75e8f86.js.map",
-    "787.6f0453fb.chunk.js.map": "./static/js/787.6f0453fb.chunk.js.map"
+    "main.css": "https://lararobertson.github.io/dashboard/static/css/main.720b4afd.css",
+    "main.js": "https://lararobertson.github.io/dashboard/static/js/main.c1758c74.js",
+    "static/js/787.6f0453fb.chunk.js": "https://lararobertson.github.io/dashboard/static/js/787.6f0453fb.chunk.js",
+    "service-worker.js": "https://lararobertson.github.io/dashboard/service-worker.js",
+    "index.html": "https://lararobertson.github.io/dashboard/index.html",
+    "main.720b4afd.css.map": "https://lararobertson.github.io/dashboard/static/css/main.720b4afd.css.map",
+    "main.c1758c74.js.map": "https://lararobertson.github.io/dashboard/static/js/main.c1758c74.js.map",
+    "787.6f0453fb.chunk.js.map": "https://lararobertson.github.io/dashboard/static/js/787.6f0453fb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.720b4afd.css",
-    "static/js/main.d75e8f86.js"
+    "static/js/main.c1758c74.js"
   ]
 }
